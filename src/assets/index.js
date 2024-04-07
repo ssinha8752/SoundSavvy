@@ -1,0 +1,1 @@
+export const logo="https://images.pexels.com/photos/205926/pexels-photo-205926.jpeg?auto=compress&cs=tinysrgb&w=600";
