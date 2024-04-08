@@ -10,7 +10,7 @@ export const Cart = () => {
   return (
     <main>
       <section className="cart">
-        <h1>Cart Items: {headphonesData.length}</h1>
+        <h1 className="items">Cart Items: {headphonesData.length}</h1>
         {headphonesData.map(headphone => (
             <CartCard key={headphone.id} headphone={headphone}/>
         ))}        
