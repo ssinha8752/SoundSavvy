@@ -1,7 +1,10 @@
 import React from 'react'
 import "./Card.css"
+import { useCart } from '../context/CartContext';
 
 export const Card = ({headphone}) => {
+
+    const { addToCart } = useCart();
     const {name, price, poster} = headphone;
 
     return (
@@ -10,7 +13,7 @@ export const Card = ({headphone}) => {
         <p className="name">{name}</p>
         <div className="action">
           <p>${price}</p>
-          <button>Add To Cart</button>
+          <button onClick={()=>addToCart(headphone)}>Add To Cart</button>
         </div>
       </div>
     )

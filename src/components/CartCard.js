@@ -1,7 +1,10 @@
 import React from 'react';
 import "./CartCard.css"
+import { useCart } from '../context/CartContext';
 
 export const CartCard = ({ headphone }) => {
+  
+  const {removeFromCart}=useCart();
   const {name, price, poster} = headphone;
 
   return (
@@ -9,7 +12,7 @@ export const CartCard = ({ headphone }) => {
         <img src={poster} alt={name} />
         <p className="productName">{name}</p>
         <p className="productPrice">${price}</p>
-        <button>Remove</button>
+        <button onClick={()=>removeFromCart(headphone)}>Remove</button>
       </div>
   )
 };
