@@ -2,10 +2,12 @@ import {Link, NavLink} from 'react-router-dom';
 import { logo } from '../assets';
 import { useSelector } from 'react-redux'; 
 import "./Header.css";
+import { useCart } from '../context/CartContext';
 
 export const Header = () => {
 
   const headphonesData=useSelector(state => state.cartState.cartList)
+
 
   return (
     <header>
@@ -19,6 +21,7 @@ export const Header = () => {
       </nav>
       <Link to="/cart" className="items">
         <span>Cart: {headphonesData.length}</span>
+
       </Link>
     </header>
   )
