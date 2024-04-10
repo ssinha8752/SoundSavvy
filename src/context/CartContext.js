@@ -15,24 +15,34 @@ export const CartProvider = ({children}) => {
 
     const addToCart = (product) => {
         const updatedCart = state.cartList.concat(product);
-        const updatedTotal = state.total+product.price;
         dispatch({
             type:"ADD_TO_CART",
             payload : {
-                products: updatedCart,
-                total: updatedTotal
+                products: updatedCart
             }
         })
+        updateTotal(updatedCart)
     }
 
     const removeFromCart = (product) => {
         const updatedCart = state.cartList.filter(current => current.id !== product.id);
-        const updatedTotal = state.total-product.price;
         dispatch({
             type:"REMOVE_TO_CART",
             payload : {
-                products: updatedCart,
-                total: updatedTotal
+                products: updatedCart
+            }
+        })
+        updateTotal(updatedCart)
+    }
+
+    const updateTotal = (products) => {
+        let total=0;
+        products.forEach(product=>total=total+product.price);
+        console.log(total)
+        dispatch({
+            type:"UPDATE_TOTAL",
+            payload:{
+                total
             }
         })
     }

@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Card.css"
 import { useCart } from '../context/CartContext';
 
 export const Card = ({headphone}) => {
 
-    const { addToCart } = useCart();
-    const {name, price, poster} = headphone;
+    const { cartList, addToCart, removeFromCart } = useCart();
+    const [inCart, setInCart] = useState(false);
+
+    const {id,name, price, poster} = headphone;
+
+    useEffect(()=>{
+      const productIsInCart=cartList.find(item => item.id === id);
+      if(productIsInCart){
+        setInCart(true);
+      }else{
+        setInCart(false);
+      }
+    },[cartList, id])
 
     return (
       <div className="productCard">
@@ -13,7 +24,9 @@ export const Card = ({headphone}) => {
         <p className="name">{name}</p>
         <div className="action">
           <p>${price}</p>
-          <button onClick={()=>addToCart(headphone)}>Add To Cart</button>
+          { inCart? 
+          (<button className='remove' onClick={()=>removeFromCart(headphone)}>Remove</button>):
+          (<button onClick={()=>addToCart(headphone)}>Add To Cart</button>)}
         </div>
       </div>
     )
