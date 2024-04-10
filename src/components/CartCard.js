@@ -6,7 +6,6 @@ import {useDispatch} from "react-redux";
 
 export const CartCard = ({ headphone }) => {
   
-  const {removeFromCart}=useCart();
   const {name, price, poster} = headphone;
   const dispatch=useDispatch();
 
