@@ -8,12 +8,12 @@ export const Cart = () => {
   useTitle("Cart");
 
   const headphonesData=useSelector(state => state.cartState.cartList)
-  const total=useSelector(state=> state.cartState.total)
+  const totalAmount=useSelector(state=> state.cartState.total)
 
   return (
     <main>
       <section className="cart">
-        <h1 className="items">Cart Items: {headphonesData.length}/${total}</h1>
+        <h1 className="items">Cart Items: {headphonesData.length}/${totalAmount}</h1>
         {headphonesData.map(headphone => (
             <CartCard key={headphone.id} headphone={headphone}/>
         ))}        
