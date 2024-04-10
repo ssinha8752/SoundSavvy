@@ -2,7 +2,6 @@ import {Link, NavLink} from 'react-router-dom';
 import { logo } from '../assets';
 import { useSelector } from 'react-redux'; 
 import "./Header.css";
-import { useCart } from '../context/CartContext';
 
 export const Header = () => {
 
