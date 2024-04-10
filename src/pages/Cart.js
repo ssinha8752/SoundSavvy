@@ -14,7 +14,7 @@ export const Cart = () => {
   return (
     <main>
       <section className="cart">
-        <h1 className="items">Cart Items: {headphonesData.length}/${totalAmount}</h1>
+        <h1 className="items">Cart Items: {headphonesData.length}/${totalAmount.toFixed(2)}</h1>
         {headphonesData.map(headphone => (
             <CartCard key={headphone.id} headphone={headphone}/>
         ))}        
