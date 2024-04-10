@@ -3,8 +3,10 @@ import { CartCard } from '../components/CartCard';
 import { useTitle } from '../hooks/useTitle';
 import { useSelector } from 'react-redux';
 
+
 export const Cart = () => {
 
+  const {cartList,total}=useCart();
   useTitle("Cart");
 
   const headphonesData=useSelector(state => state.cartState.cartList)
